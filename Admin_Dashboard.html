@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pharmacy Admin Dashboard — Real-time pharmaceutical operations and financial performance metrics.">
+  <title>Admin Dashboard — PharmaCare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="admin-layout">
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Pharmacy Admin</h2>
+        <span>Terminal #04</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="Admin_Dashboard.html" class="active">
+          <span class="nav-icon">&#x1F4CA;</span> Dashboard
+        </a>
+        <a href="All_Orders_Report.html">
+          <span class="nav-icon">&#x1F6D2;</span> Orders
+        </a>
+        <a href="Manage_Users.html">
+          <span class="nav-icon">&#x1F465;</span> Patients
+        </a>
+        <a href="Manage_Pharmacists.html">
+          <span class="nav-icon">&#x1F4CB;</span> Reports
+        </a>
+      </nav>
+
+      <div class="sidebar-cta">
+        <button class="btn-prescription">+ New Prescription</button>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="#">&#x1F6AA; Logout</a>
+      </div>
+    </aside>
+
+    <!-- ========== MAIN ========== -->
+    <main class="main-content">
+
+      <!-- Top Navbar -->
+      <header class="top-navbar">
+        <label class="search-bar">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" placeholder="Search patients or medical records...">
+        </label>
+        <div class="navbar-actions">
+          <button class="icon-btn" aria-label="Notifications">
+            &#128276;
+            <span class="notification-dot"></span>
+          </button>
+          <div class="admin-avatar">HA</div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <section class="page-content">
+
+        <!-- Page Header -->
+        <div class="page-header page-header-row">
+          <div>
+            <h1>System Overview</h1>
+            <p>Real-time pharmaceutical operations and financial performance metrics.</p>
+          </div>
+          <div class="time-filter-tabs">
+            <span class="active">Today</span>
+            <span>Weekly</span>
+            <span>Monthly</span>
+          </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-card-top">
+              <div class="stat-card-icon users">&#x1F465;</div>
+              <span class="stat-badge positive">+12.5%</span>
+            </div>
+            <span class="stat-card-label">Total Users</span>
+            <span class="stat-card-value">14,285</span>
+            <span class="stat-card-sub">Active patients across all regions</span>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-card-top">
+              <div class="stat-card-icon orders">&#x1F6D2;</div>
+              <span class="stat-badge positive">+8.2%</span>
+            </div>
+            <span class="stat-card-label">Total Orders</span>
+            <span class="stat-card-value">3,492</span>
+            <span class="stat-card-sub">Processed in last 24 hours</span>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-card-top">
+              <div class="stat-card-icon revenue">&#x1F4B0;</div>
+              <span class="stat-badge positive">+21.4%</span>
+            </div>
+            <span class="stat-card-label">Total Revenue</span>
+            <span class="stat-card-value">$182,450</span>
+            <span class="stat-card-sub">Net pharmaceutical sales</span>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-card-top">
+              <div class="stat-card-icon stock">&#x1F4E6;</div>
+              <span class="stat-badge negative">-2.4%</span>
+            </div>
+            <span class="stat-card-label">Stock Levels</span>
+            <span class="stat-card-value">88.5%</span>
+            <span class="stat-card-sub">12 items requiring reorder</span>
+          </article>
+        </div>
+
+        <!-- Revenue Chart + Activity -->
+        <div class="two-col">
+          <!-- Chart -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Revenue Performance</h2>
+              <div class="legend"><span class="legend-dot"></span> Current Period</div>
+            </div>
+            <div class="chart-area">
+              <div class="chart-bar-group"><div class="chart-bar" style="height:18%"></div><span>Jan</span></div>
+              <div class="chart-bar-group"><div class="chart-bar" style="height:28%"></div><span>Feb</span></div>
+              <div class="chart-bar-group"><div class="chart-bar" style="height:35%"></div><span>Mar</span></div>
+              <div class="chart-bar-group"><div class="chart-bar" style="height:55%"></div><span>Apr</span></div>
+              <div class="chart-bar-group"><div class="chart-bar" style="height:70%"></div><span>May</span></div>
+              <div class="chart-bar-group"><div class="chart-bar" style="height:62%"></div><span>Jun</span></div>
+              <div class="chart-bar-group"><div class="chart-bar" style="height:85%"></div><span>Jul</span></div>
+              <div class="chart-bar-group"><div class="chart-bar" style="height:68%"></div><span>Aug</span></div>
+              <div class="chart-bar-group"><div class="chart-bar" style="height:75%"></div><span>Sep</span></div>
+              <div class="chart-bar-group"><div class="chart-bar" style="height:58%"></div><span>Oct</span></div>
+              <div class="chart-bar-group"><div class="chart-bar" style="height:45%"></div><span>Nov</span></div>
+              <div class="chart-bar-group"><div class="chart-bar" style="height:52%"></div><span>Dec</span></div>
+            </div>
+          </div>
+
+          <!-- Activity Feed -->
+          <div class="card">
+            <div class="card-header">
+              <h2>System Activity</h2>
+            </div>
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-icon success">&#10003;</div>
+                <div class="activity-text">
+                  <strong>New Pharmacist Onboarded</strong>
+                  <span>Dr. Aris Thorne (Terminal #12)</span>
+                  <small>2 mins ago</small>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon info">&#8635;</div>
+                <div class="activity-text">
+                  <strong>Bulk Reorder Initiated</strong>
+                  <span>Stock update: Amoxicillin (500 units)</span>
+                  <small>14 mins ago</small>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon warning">&#9888;</div>
+                <div class="activity-text">
+                  <strong>Security Alert</strong>
+                  <span>Failed login attempt · IP 192.168.1.45</span>
+                  <small>45 mins ago</small>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon neutral">&#128196;</div>
+                <div class="activity-text">
+                  <strong>Weekly Report Generated</strong>
+                  <span>Financial reconciliation completed</span>
+                  <small>2 hours ago</small>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="view-audit">View Audit Log</a>
+          </div>
+        </div>
+
+        <!-- Personnel Management -->
+        <section class="card personnel-section">
+          <div class="personnel-header">
+            <div>
+              <h2>Restricted Personnel Management</h2>
+              <p>High-level access control for regional administrators.</p>
+            </div>
+            <div class="personnel-search">
+              <input type="text" placeholder="Search staff...">
+              <button class="filter-btn">&#9776;</button>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Personnel</th>
+                  <th>Role</th>
+                  <th>Region</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar green">SJ</div>
+                      <div class="user-info">
+                        <strong>Sarah Jenkins</strong>
+                        <small>s.jenkins@pharmacare.sys</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="role-tag system-admin">System Admin</span></td>
+                  <td>Northwest Region</td>
+                  <td><span class="status"><span class="status-dot online"></span> Online</span></td>
+                  <td><a href="#" class="action-link">Edit Dosage</a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar teal">MV</div>
+                      <div class="user-info">
+                        <strong>Marcus Vane</strong>
+                        <small>m.vane@pharmacare.sys</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="role-tag lead-pharmacist">Lead Pharmacist</span></td>
+                  <td>Central Terminal</td>
+                  <td><span class="status"><span class="status-dot online"></span> Online</span></td>
+                  <td><a href="#" class="action-link">Edit Dosage</a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar orange">ER</div>
+                      <div class="user-info">
+                        <strong>Elena Rodriguez</strong>
+                        <small>e.rodriguez@pharmacare.sys</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="role-tag inventory-mgr">Inventory Mgr</span></td>
+                  <td>South Logistics</td>
+                  <td><span class="status"><span class="status-dot offline"></span> Offline</span></td>
+                  <td><a href="#" class="action-link">Edit Dosage</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-meta">
+            <span>Showing 1-3 of 24 records</span>
+            <div class="pagination">
+              <a href="#" class="disabled">&lsaquo;</a>
+              <a href="#">&rsaquo;</a>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- Footer -->
+      <footer class="main-footer">
+        <span>&copy; 2024 PharmaCare Systems. Licensed Medical Provider.</span>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Drug Safety</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>

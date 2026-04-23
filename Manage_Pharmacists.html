@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage Pharmacists — Pending applications and active pharmacist directory.">
+  <title>Manage Pharmacists — PharmaCare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="admin-layout">
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Pharmacy Admin</h2>
+        <span>Terminal #04</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="Admin_Dashboard.html">
+          <span class="nav-icon">&#x1F4CA;</span> Dashboard
+        </a>
+        <a href="All_Orders_Report.html">
+          <span class="nav-icon">&#x1F6D2;</span> Orders
+        </a>
+        <a href="Manage_Users.html" class="active">
+          <span class="nav-icon">&#x1F465;</span> Patients
+        </a>
+        <a href="Manage_Pharmacists.html">
+          <span class="nav-icon">&#x1F4CB;</span> Reports
+        </a>
+      </nav>
+
+      <div class="sidebar-cta">
+        <button class="btn-prescription">+ New Prescription</button>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="#">&#x1F6AA; Logout</a>
+      </div>
+    </aside>
+
+    <!-- ========== MAIN ========== -->
+    <main class="main-content">
+
+      <!-- Top Navbar -->
+      <header class="top-navbar">
+        <label class="search-bar">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" placeholder="Search by name or license...">
+        </label>
+        <div class="navbar-actions">
+          <button class="icon-btn" aria-label="Notifications">
+            &#128276;
+            <span class="notification-dot"></span>
+          </button>
+          <div class="admin-avatar">HA</div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <section class="page-content">
+
+        <!-- Page Header -->
+        <div class="page-header page-header-row">
+          <div>
+            <h1>Manage Pharmacists <span class="count-badge">12 Pending</span></h1>
+          </div>
+          <div class="invite-section">
+            <strong>Invite New Pharmacist</strong>
+            <span>Send a secure registration link to a verified practitioner</span>
+          </div>
+        </div>
+
+        <!-- Pending Applications -->
+        <div class="pending-section">
+          <div class="pending-section-header">
+            <h2>&#128203; Pending Applications</h2>
+            <a href="#">View All Requests</a>
+          </div>
+
+          <div class="pending-cards">
+            <!-- Card 1 -->
+            <article class="pending-card">
+              <div class="pending-card-header">
+                <div class="avatar green">SJ</div>
+                <h3>Dr. Sarah Jenkins</h3>
+                <span class="urgent-badge">Urgent Review</span>
+              </div>
+              <div class="pending-card-detail">
+                <span class="label">Education:</span>
+                <span class="value">PharmD, Johns Hopkins</span>
+              </div>
+              <div class="pending-card-actions">
+                <button class="btn btn-success">Approve</button>
+                <button class="btn btn-danger-outline">Deny</button>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="pending-card">
+              <div class="pending-card-header">
+                <div class="avatar blue">MT</div>
+                <h3>Mark Thompson</h3>
+              </div>
+              <div class="pending-card-detail">
+                <span class="label">Education:</span>
+                <span class="value">B.Pharm, UCSF</span>
+              </div>
+              <div class="pending-card-actions">
+                <button class="btn btn-success">Approve</button>
+                <button class="btn btn-danger-outline">Deny</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Active Pharmacists -->
+        <div class="card">
+          <div class="card-header">
+            <h2>&#9989; Active Pharmacists</h2>
+            <div class="toolbar">
+              <button class="filter-btn">&#9776; Filters</button>
+              <button class="btn btn-outline">&#8681; Export List</button>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table" id="pharmacists-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>License Number</th>
+                  <th>Date Joined</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar teal">EL</div>
+                      <div class="user-info">
+                        <strong>Elena Rodriguez</strong>
+                        <small>Chief Pharmacist</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>PH-11029-A</td>
+                  <td>Jan 12, 2023</td>
+                  <td>
+                    <span class="status">
+                      <span class="status-dot active"></span>
+                      <span class="status-text active">ACTIVE</span>
+                    </span>
+                  </td>
+                  <td>
+                    <div class="action-btns">
+                      <button class="action-btn" aria-label="Edit">&#9998;</button>
+                      <button class="action-btn" aria-label="Manage">&#128101;</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar indigo">JW</div>
+                      <div class="user-info">
+                        <strong>James Wilson</strong>
+                        <small>Night Shift Lead</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>PH-44921-7</td>
+                  <td>May 30, 2023</td>
+                  <td>
+                    <span class="status">
+                      <span class="status-dot active"></span>
+                      <span class="status-text active">ACTIVE</span>
+                    </span>
+                  </td>
+                  <td>
+                    <div class="action-btns">
+                      <button class="action-btn" aria-label="Edit">&#9998;</button>
+                      <button class="action-btn" aria-label="Manage">&#128101;</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar cyan">AC</div>
+                      <div class="user-info">
+                        <strong>Amanda Chen</strong>
+                        <small>Staff Pharmacist</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>PH-33810-R</td>
+                  <td>Aug 15, 2024</td>
+                  <td>
+                    <span class="status">
+                      <span class="status-dot on-leave"></span>
+                      <span class="status-text on-leave">ON LEAVE</span>
+                    </span>
+                  </td>
+                  <td>
+                    <div class="action-btns">
+                      <button class="action-btn" aria-label="Edit">&#9998;</button>
+                      <button class="action-btn" aria-label="Manage">&#128101;</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-meta">
+            <span>Showing 1-10 of 42 pharmacists</span>
+            <div class="pagination">
+              <a href="#">1</a>
+              <a href="#" class="active">2</a>
+              <a href="#">3</a>
+              <span>...</span>
+              <a href="#">5</a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Footer -->
+      <footer class="main-footer">
+        <span>&copy; 2024 PharmaCare Systems. Licensed Medical Provider.</span>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Drug Safety</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>

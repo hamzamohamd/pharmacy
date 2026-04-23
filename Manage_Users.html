@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="User Management — Access control and system permissions for pharmaceutical staff and patients.">
+  <title>Manage Users — PharmaCare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="admin-layout">
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Pharmacy Admin</h2>
+        <span>Terminal #04</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="Admin_Dashboard.html">
+          <span class="nav-icon">&#x1F4CA;</span> Dashboard
+        </a>
+        <a href="All_Orders_Report.html">
+          <span class="nav-icon">&#x1F6D2;</span> Orders
+        </a>
+        <a href="Manage_Users.html" class="active">
+          <span class="nav-icon">&#x1F465;</span> Patients
+        </a>
+        <a href="Manage_Pharmacists.html">
+          <span class="nav-icon">&#x1F4CB;</span> Reports
+        </a>
+      </nav>
+
+      <div class="sidebar-cta">
+        <button class="btn-prescription">+ New Prescription</button>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="#">&#x1F6AA; Logout</a>
+      </div>
+    </aside>
+
+    <!-- ========== MAIN ========== -->
+    <main class="main-content">
+
+      <!-- Top Navbar -->
+      <header class="top-navbar">
+        <label class="search-bar">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" placeholder="Search patients or medical records...">
+        </label>
+        <div class="navbar-actions">
+          <button class="icon-btn" aria-label="Notifications">
+            &#128276;
+            <span class="notification-dot"></span>
+          </button>
+          <div class="admin-avatar">HA</div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <section class="page-content">
+
+        <!-- Page Header -->
+        <div class="page-header page-header-row">
+          <div>
+            <h1>User Management</h1>
+            <p>Access control and system permissions for pharmaceutical staff and patients.</p>
+          </div>
+          <div class="toolbar">
+            <div class="filter-tabs">
+              <span class="active">All</span>
+              <span>Admins</span>
+              <span>Pharmacists</span>
+              <span>Users</span>
+            </div>
+            <button class="filter-btn">&#9776; Filters</button>
+          </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="card">
+          <div class="table-wrapper">
+            <table class="data-table" id="users-table">
+              <thead>
+                <tr>
+                  <th>User Details</th>
+                  <th>Email Address</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Last Login</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar green">SM</div>
+                      <div class="user-info">
+                        <strong>Sarah Miller</strong>
+                        <small>ID: #USR-9821</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>s.miller@pharmcare.org</td>
+                  <td><span class="role-badge pharmacist">Pharmacist</span></td>
+                  <td>
+                    <span class="status">
+                      <span class="status-dot active"></span>
+                      <span class="status-text active">Active</span>
+                    </span>
+                  </td>
+                  <td>2 mins ago</td>
+                  <td>
+                    <div class="action-btns">
+                      <button class="action-btn" aria-label="Edit">&#9998;</button>
+                      <button class="action-btn danger" aria-label="Delete">&#128465;</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar blue">DR</div>
+                      <div class="user-info">
+                        <strong>David Rivera</strong>
+                        <small>ID: #USR-9012</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>d.rivera@medisys.com</td>
+                  <td><span class="role-badge admin">Admin</span></td>
+                  <td>
+                    <span class="status">
+                      <span class="status-dot active"></span>
+                      <span class="status-text active">Active</span>
+                    </span>
+                  </td>
+                  <td>1 hour ago</td>
+                  <td>
+                    <div class="action-btns">
+                      <button class="action-btn" aria-label="Edit">&#9998;</button>
+                      <button class="action-btn danger" aria-label="Delete">&#128465;</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar purple">JB</div>
+                      <div class="user-info">
+                        <strong>James Bennett</strong>
+                        <small>ID: #USR-4432</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>j.bennett@gmail.com</td>
+                  <td><span class="role-badge user">User</span></td>
+                  <td>
+                    <span class="status">
+                      <span class="status-dot inactive"></span>
+                      <span class="status-text inactive">Inactive</span>
+                    </span>
+                  </td>
+                  <td>3 days ago</td>
+                  <td>
+                    <div class="action-btns">
+                      <button class="action-btn" aria-label="Edit">&#9998;</button>
+                      <button class="action-btn danger" aria-label="Delete">&#128465;</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar teal">EL</div>
+                      <div class="user-info">
+                        <strong>Elena Lopez</strong>
+                        <small>ID: #USR-7721</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>e.lopez@pharmcare.org</td>
+                  <td><span class="role-badge pharmacist">Pharmacist</span></td>
+                  <td>
+                    <span class="status">
+                      <span class="status-dot active"></span>
+                      <span class="status-text active">Active</span>
+                    </span>
+                  </td>
+                  <td>12 mins ago</td>
+                  <td>
+                    <div class="action-btns">
+                      <button class="action-btn" aria-label="Edit">&#9998;</button>
+                      <button class="action-btn danger" aria-label="Delete">&#128465;</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-meta">
+            <span>Showing 4 of 2,840 users</span>
+            <div class="pagination">
+              <span class="disabled">Previous</span>
+              <a href="#">Next</a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Footer -->
+      <footer class="main-footer">
+        <span>&copy; 2024 PharmaCare Systems. Licensed Medical Provider.</span>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Drug Safety</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>

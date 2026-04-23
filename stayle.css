@@ -1,0 +1,645 @@
+/* ============================================
+   Pharmacy Admin Panel — style.css
+   Pure HTML & CSS — No frameworks
+   ============================================ */
+
+/* ---------- Google Font ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ================================
+   CSS Variables (colors, sizes)
+   ================================ */
+:root {
+  --primary: #0d6e4e;          /* main green */
+  --primary-dark: #0a5a3f;     /* darker green for hover */
+  --primary-light: #e8f5f0;    /* light green background */
+  --white: #ffffff;
+  --gray-50: #f8fafc;          /* page background */
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;         /* borders */
+  --gray-400: #94a3b8;         /* muted text */
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;         /* headings */
+  --danger: #ef4444;           /* red for delete */
+  --danger-bg: #fef2f2;
+  --warning: #f59e0b;          /* yellow/orange */
+  --success: #10b981;          /* green for active */
+  --sidebar-width: 230px;      /* sidebar width */
+  --navbar-height: 60px;       /* top bar height */
+  --radius: 8px;               /* border radius */
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* ================================
+   Reset & Base Styles
+   ================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--gray-50);
+  color: var(--gray-700);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul { list-style: none; }
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* ================================
+   Layout — Sidebar + Main
+   ================================ */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ================================
+   Sidebar Styling
+   ================================ */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--white);
+  border-right: 1px solid var(--gray-200);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar — Brand / Logo */
+.sidebar-brand {
+  padding: 20px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.sidebar-brand h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.sidebar-brand small {
+  font-size: 0.72rem;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Sidebar — Navigation Links */
+.sidebar-nav {
+  flex: 1;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-nav a:hover {
+  background: var(--gray-100);
+  color: var(--gray-800);
+}
+
+/* Sidebar — Active Link */
+.sidebar-nav a.active {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Sidebar — Nav Icon */
+.nav-icon {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Sidebar — Logout at Bottom */
+.sidebar-logout {
+  padding: 16px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.sidebar-logout a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  color: var(--gray-500);
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-logout a:hover {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+/* ================================
+   Main Content Area
+   ================================ */
+.main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ================================
+   Top Navbar
+   ================================ */
+.navbar {
+  height: var(--navbar-height);
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Navbar — Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: 20px;
+  padding: 7px 16px;
+  width: 300px;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.85rem;
+  width: 100%;
+  font-family: inherit;
+  color: var(--gray-700);
+}
+
+.search-box input::placeholder {
+  color: var(--gray-400);
+}
+
+/* Navbar — Right Side (notification + avatar) */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.notification-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--gray-500);
+  position: relative;
+}
+
+/* Notification red dot */
+.notification-btn::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--danger);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.admin-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ================================
+   Page Content Wrapper
+   ================================ */
+.page-content {
+  padding: 24px;
+  flex: 1;
+}
+
+/* ================================
+   Page Header (title + subtitle)
+   ================================ */
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+.page-header p {
+  font-size: 0.88rem;
+  color: var(--gray-400);
+  margin-top: 4px;
+}
+
+/* ================================
+   Stats Cards (Dashboard)
+   ================================ */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Stat card icon row */
+.stat-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-top: 4px;
+}
+
+/* ================================
+   Card Container (wraps tables, etc.)
+   ================================ */
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Card Header (title + optional button) */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.card-header h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+/* ================================
+   Data Table Design
+   ================================ */
+.data-table thead th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.data-table tbody td {
+  padding: 12px 14px;
+  font-size: 0.88rem;
+  color: var(--gray-700);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+/* Table row hover */
+.data-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+/* ================================
+   Empty State (when no data)
+   ================================ */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--gray-400);
+  font-size: 0.95rem;
+}
+
+.empty-state .empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* ================================
+   Role Badge (Pharmacist, Admin, User)
+   ================================ */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.badge-pharmacist {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.badge-admin {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.badge-user {
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+
+/* ================================
+   Status Dot + Text
+   ================================ */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot-active   { background: var(--success); }
+.dot-pending  { background: var(--warning); }
+.dot-inactive { background: var(--gray-400); }
+
+/* ================================
+   Action Buttons (Edit, Delete)
+   ================================ */
+.action-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-action {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-action:hover {
+  background: var(--gray-100);
+  color: var(--gray-800);
+}
+
+.btn-action.delete:hover {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+/* ================================
+   General Buttons
+   ================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: background 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-outline {
+  background: var(--white);
+  color: var(--gray-600);
+  border-color: var(--gray-200);
+}
+
+.btn-outline:hover {
+  background: var(--gray-100);
+}
+
+.btn-approve {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+}
+
+.btn-approve:hover {
+  background: var(--primary-dark);
+}
+
+.btn-deny {
+  background: var(--white);
+  color: var(--gray-600);
+  border: 1px solid var(--gray-200);
+}
+
+.btn-deny:hover {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+/* ================================
+   Filter Bar (Orders page)
+   ================================ */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.filter-bar label {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.filter-bar select,
+.filter-bar input[type="date"] {
+  padding: 7px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: 0.84rem;
+  font-family: inherit;
+  color: var(--gray-700);
+  background: var(--white);
+  outline: none;
+}
+
+.filter-bar select:focus,
+.filter-bar input[type="date"]:focus {
+  border-color: var(--primary);
+}
+
+/* ================================
+   Footer
+   ================================ */
+.footer {
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--gray-400);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-links a {
+  color: var(--gray-400);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+/* ================================
+   Responsive — Tablet
+   ================================ */
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .search-box {
+    width: 180px;
+  }
+}
+
+/* ================================
+   Responsive — Mobile
+   ================================ */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 12px;
+  }
+
+  .search-box {
+    display: none;
+  }
+
+  .page-content {
+    padding: 16px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}

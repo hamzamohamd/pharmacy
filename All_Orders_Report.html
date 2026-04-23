@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="All Orders Report — Complete order tracking with filtering, status breakdowns, and system insights.">
+  <title>Orders Report — PharmaCare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="admin-layout">
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>Pharmacy Admin</h2>
+        <span>Terminal #04</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="Admin_Dashboard.html">
+          <span class="nav-icon">&#x1F4CA;</span> Dashboard
+        </a>
+        <a href="All_Orders_Report.html" class="active">
+          <span class="nav-icon">&#x1F6D2;</span> Orders
+        </a>
+        <a href="Manage_Users.html">
+          <span class="nav-icon">&#x1F465;</span> Patients
+        </a>
+        <a href="Manage_Pharmacists.html">
+          <span class="nav-icon">&#x1F4CB;</span> Reports
+        </a>
+      </nav>
+
+      <div class="sidebar-cta">
+        <button class="btn-prescription">+ New Prescription</button>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="#">&#x1F6AA; Logout</a>
+      </div>
+    </aside>
+
+    <!-- ========== MAIN ========== -->
+    <main class="main-content">
+
+      <!-- Top Navbar -->
+      <header class="top-navbar">
+        <label class="search-bar">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" placeholder="Search orders...">
+        </label>
+        <div class="navbar-actions">
+          <button class="icon-btn" aria-label="Notifications">
+            &#128276;
+            <span class="notification-dot"></span>
+          </button>
+          <div class="admin-avatar">HA</div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <section class="page-content">
+
+        <!-- Order Stats -->
+        <div class="order-stats">
+          <article class="order-stat-card">
+            <div class="order-stat-top">
+              <span class="order-stat-label">Total Orders</span>
+              <div class="order-stat-icon" style="background:var(--info-bg);color:var(--info);">&#x1F6D2;</div>
+            </div>
+            <div class="order-stat-value">1,284</div>
+            <div class="order-stat-sub positive">&#8599; +12% from last month</div>
+          </article>
+
+          <article class="order-stat-card">
+            <div class="order-stat-top">
+              <span class="order-stat-label">Pending Fulfillment</span>
+              <div class="order-stat-icon" style="background:var(--warning-bg);color:var(--warning);">&#128230;</div>
+            </div>
+            <div class="order-stat-value">42</div>
+            <div class="order-stat-sub neutral">Needs attention within 24h</div>
+          </article>
+
+          <article class="order-stat-card">
+            <div class="order-stat-top">
+              <span class="order-stat-label">Total Revenue</span>
+              <div class="order-stat-icon" style="background:var(--success-bg);color:var(--success);">&#x1F4B0;</div>
+            </div>
+            <div class="order-stat-value">$52,490.00</div>
+            <div class="order-stat-sub positive">&#8599; +5.4% growth</div>
+          </article>
+
+          <article class="order-stat-card">
+            <div class="order-stat-top">
+              <span class="order-stat-label">Avg. Processing Time</span>
+              <div class="order-stat-icon" style="background:var(--primary-light);color:var(--primary);">&#9201;</div>
+            </div>
+            <div class="order-stat-value">1.2 hrs</div>
+            <div class="order-stat-sub positive">&#8600; -15m improvement</div>
+          </article>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="card">
+          <div class="filter-bar">
+            <div class="filter-controls">
+              <span class="filter-label">Status:</span>
+              <select class="select-field" id="status-filter">
+                <option>All Statuses</option>
+                <option>Shipped</option>
+                <option>Pending</option>
+                <option>Cancelled</option>
+              </select>
+
+              <span class="filter-label">Date Range:</span>
+              <input type="text" class="date-field" value="Oct 01 - Oct 31, 2024" readonly>
+            </div>
+            <div class="toolbar">
+              <button class="btn btn-outline">&#8681; Export CSV</button>
+              <button class="btn btn-primary">&#9776; Advanced Filters</button>
+            </div>
+          </div>
+
+          <!-- Orders Table -->
+          <div class="table-wrapper">
+            <table class="data-table" id="orders-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Date</th>
+                  <th>Total Amount</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#PC-9402</strong></td>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar indigo">JD</div>
+                      <div class="user-info">
+                        <strong>Jane Doe</strong>
+                        <small>jane.d@email.com</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Oct 24, 2024</td>
+                  <td><strong>$124.50</strong></td>
+                  <td>
+                    <span class="status">
+                      <span class="status-dot shipped"></span>
+                      <span class="status-text shipped">Shipped</span>
+                    </span>
+                  </td>
+                  <td>
+                    <button class="action-btn" aria-label="More">&#8942;</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- All Orders Report Section -->
+        <div class="card">
+          <div class="card-header">
+            <h2>All Orders Report</h2>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Date</th>
+                  <th>Total Amount</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#PC-9400</strong></td>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar orange">MA</div>
+                      <div class="user-info">
+                        <strong>Michael Aris</strong>
+                        <small>m.aris@hospital.org</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Oct 23, 2024</td>
+                  <td><strong>$89.99</strong></td>
+                  <td>
+                    <span class="status">
+                      <span class="status-dot pending"></span>
+                      <span class="status-text pending">Pending</span>
+                    </span>
+                  </td>
+                  <td>
+                    <button class="action-btn" aria-label="More">&#8942;</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>#PC-9399</strong></td>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar purple">LK</div>
+                      <div class="user-info">
+                        <strong>Linda Kim</strong>
+                        <small>linda@health.com</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Oct 23, 2024</td>
+                  <td><strong>$1,042.15</strong></td>
+                  <td>
+                    <span class="status">
+                      <span class="status-dot cancelled"></span>
+                      <span class="status-text cancelled">Cancelled</span>
+                    </span>
+                  </td>
+                  <td>
+                    <button class="action-btn" aria-label="More">&#8942;</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>#PC-9398</strong></td>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar teal">TW</div>
+                      <div class="user-info">
+                        <strong>Thomas Wright</strong>
+                        <small>tw@mailbox.com</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Oct 22, 2024</td>
+                  <td><strong>$560.00</strong></td>
+                  <td>
+                    <span class="status">
+                      <span class="status-dot shipped"></span>
+                      <span class="status-text shipped">Shipped</span>
+                    </span>
+                  </td>
+                  <td>
+                    <button class="action-btn" aria-label="More">&#8942;</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-meta">
+            <span>Showing 1 to 5 of 1,284 entries</span>
+            <div class="pagination">
+              <a href="#" class="disabled">&lsaquo;</a>
+              <a href="#" class="active">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">&rsaquo;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Volume + Insights -->
+        <div class="volume-section">
+          <div class="volume-card">
+            <h3>Volume by Status</h3>
+            <div class="volume-item">
+              <div class="volume-item-header">
+                <span class="label">Shipped</span>
+                <span class="pct">65%</span>
+              </div>
+              <div class="volume-bar-track">
+                <div class="volume-bar-fill shipped" style="width:65%"></div>
+              </div>
+            </div>
+            <div class="volume-item">
+              <div class="volume-item-header">
+                <span class="label">Processing</span>
+                <span class="pct">20%</span>
+              </div>
+              <div class="volume-bar-track">
+                <div class="volume-bar-fill processing" style="width:20%"></div>
+              </div>
+            </div>
+            <div class="volume-item">
+              <div class="volume-item-header">
+                <span class="label">Pending</span>
+                <span class="pct">10%</span>
+              </div>
+              <div class="volume-bar-track">
+                <div class="volume-bar-fill pending" style="width:10%"></div>
+              </div>
+            </div>
+            <div class="volume-item">
+              <div class="volume-item-header">
+                <span class="label">Cancelled</span>
+                <span class="pct">5%</span>
+              </div>
+              <div class="volume-bar-track">
+                <div class="volume-bar-fill cancelled" style="width:5%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="insight-card">
+            <h3>System Insights</h3>
+            <p>Optimization suggested for Peak Hour Logistics (14:00 - 16:00).</p>
+            <div class="insight-chart-placeholder">
+              <div class="insight-bar" style="height:30%"></div>
+              <div class="insight-bar" style="height:50%"></div>
+              <div class="insight-bar" style="height:70%"></div>
+              <div class="insight-bar" style="height:90%"></div>
+              <div class="insight-bar" style="height:65%"></div>
+              <div class="insight-bar" style="height:80%"></div>
+              <div class="insight-bar" style="height:55%"></div>
+              <div class="insight-bar" style="height:45%"></div>
+              <div class="insight-bar" style="height:75%"></div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Footer -->
+      <footer class="main-footer">
+        <span>&copy; 2024 PharmaCare Systems. Licensed Medical Provider.</span>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Drug Safety</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>
