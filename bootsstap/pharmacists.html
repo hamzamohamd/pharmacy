@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediFlow Admin - Pharmacists</title>
+    <link rel="stylesheet" href="assest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assest/css/style.css">
+</head>
+<body class="bg-light">
+<div class="d-flex">
+    <!-- SIDEBAR -->
+    <nav class="d-flex flex-column bg-white border-end vh-100 position-fixed" style="width:240px;z-index:1030;">
+        <div class="d-flex align-items-center gap-2 p-3 pb-4">
+            <div class="bg-primary rounded-3 d-flex align-items-center justify-content-center text-white fw-bold" style="width:38px;height:38px;">+</div>
+            <div>
+                <h6 class="mb-0 fw-bold">MediFlow Admin</h6>
+                <small class="text-secondary">Healthcare Logistics</small>
+            </div>
+        </div>
+        <ul class="nav flex-column px-2 flex-grow-1">
+            <li class="nav-item"><a href="index.html" class="nav-link text-secondary d-flex align-items-center gap-2"><span>&#9783;</span> Dashboard</a></li>
+            <li class="nav-item"><a href="users.html" class="nav-link text-secondary d-flex align-items-center gap-2"><span>&#128101;</span> Users</a></li>
+            <li class="nav-item"><a href="pharmacists.html" class="nav-link active bg-primary-subtle text-primary fw-semibold rounded-2 d-flex align-items-center gap-2 border-start border-3 border-primary"><span>&#9769;</span> Pharmacists</a></li>
+            <li class="nav-item"><a href="orders.html" class="nav-link text-secondary d-flex align-items-center gap-2"><span>&#128722;</span> Orders</a></li>
+        </ul>
+        <div class="border-top p-2"><a href="#" class="nav-link text-secondary d-flex align-items-center gap-2"><span>&#10145;</span> Logout</a></div>
+    </nav>
+    <!-- MAIN -->
+    <div class="flex-grow-1" style="margin-left:240px;">
+        <!-- TOP NAV -->
+        <nav class="navbar bg-white border-bottom px-4">
+            <div class="container-fluid">
+                <nav aria-label="breadcrumb"><ol class="breadcrumb mb-0 small"><li class="breadcrumb-item text-secondary">Manage Pharmacists</li><li class="breadcrumb-item active text-secondary">Awaiting Approval</li></ol></nav>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="text-secondary fs-5">&#128276;</span>
+                    <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center text-white fw-semibold" style="width:34px;height:34px;font-size:13px;">A</div>
+                </div>
+            </div>
+        </nav>
+        <!-- CONTENT -->
+        <div class="p-4">
+            <div class="d-flex justify-content-between align-items-start mb-4 flex-wrap gap-3">
+                <h2 class="fw-bold">Review Applications</h2>
+                <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-primary btn-sm rounded-pill d-flex align-items-center gap-1">Pending <span class="badge bg-white text-primary rounded-pill">0</span></a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm rounded-pill">Active</a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm rounded-pill">Suspended</a>
+                </div>
+            </div>
+            <!-- EMPTY STATE -->
+            <div class="card border rounded-3">
+                <div class="card-body text-center py-5">
+                    <div class="bg-primary-subtle rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width:80px;height:80px;font-size:32px;">&#9989;</div>
+                    <h5 class="fw-bold">No pharmacists awaiting approval.</h5>
+                    <p class="text-secondary small mx-auto" style="max-width:420px;">All submitted applications have been reviewed. You're completely caught up with the queue.</p>
+                    <a href="#" class="btn btn-outline-secondary">&#8635; Refresh Queue</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
